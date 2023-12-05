@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.text-item {
+    grid-column: span 4;
+    border: 1px solid darkgreen;
+    padding: 10px;
+}
+
+.image-item {
+    height: 200px;
+    background-size: cover;
+}
+
+.img1 {
+    grid-column: span 2;
+    background-image: url('path-to-image-1.jpg');
+}
+
+.img2 {
+    background-image: url('path-to-image-2.jpg');
+}
+
+.img3 {
+    background-image: url('path-to-image-3.jpg');
+}
+
+.img4 {
+    background-image: url('path-to-image-4.jpg');
+}
+
+/* Media Queries */
+
+/* Viewport větší než 880 px */
+@media (min-width: 881px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Viewport mezi 400 a 880 px */
+@media (min-width: 400px) and (max-width: 880px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .img4 {
+        display: none;
+    }
+}
+
+/* Viewport menší než 400 px */
+@media (max-width: 399px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .img3, .img4 {
+        display: none;
+    }
+}
